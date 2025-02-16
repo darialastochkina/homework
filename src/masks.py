@@ -6,16 +6,7 @@ def get_mask_card_number(card_number: str) -> str:
     return masked_number
 
 
-card_number = input()
-print(get_mask_card_number(card_number))
-
-
 def get_mask_account(account_number: str) -> str:
     last_part = account_number[-4:]
     masked_account = "**" + last_part
-
     return masked_account
-
-
-account_number = input()
-print(get_mask_account(account_number))

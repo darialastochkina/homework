@@ -2,19 +2,16 @@ from src import masks
 
 
 def mask_account_card(acc: str) -> str:
-    """функция счёта"""
-    number = ""
-    name_card = ""
-    for i in acc:
-        if i.isdigit():
-            number += i
-        else:
-            name_card += i
+    parts = acc.split()
+    name = parts[0:-1]
+    number = parts[-1]
 
-        name_card += masks.get_mask_account(number)
+    name_str = ' '.join(name)
+
+    if name_str == "Счет":
+        return f"{name_str} {masks.get_mask_account(number)}"
     else:
-        name_card += masks.get_mask_card_number(number)
-    return name_card
+        return f"{name_str} {masks.get_mask_card_number(number)}"
 
 
 def get_date(date: str) -> str:

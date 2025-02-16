@@ -1,4 +1,4 @@
-from src import widget, processing
+from src import processing, widget
 
 input_card = input()
 date_input = input()
