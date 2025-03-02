@@ -1,4 +1,9 @@
-def filter_by_state(transactions, state="EXECUTED"):
+from typing import Any, Dict, List
+
+
+def filter_by_state(
+    transactions: List[Dict[str, Any]], state: str = "EXECUTED"
+) -> List[Dict[str, Any]]:
     """Фильтрует список словарей по значению ключа state."""
     filter_list = []
     for i in transactions:
@@ -7,6 +12,8 @@ def filter_by_state(transactions, state="EXECUTED"):
     return filter_list
 
 
-def sort_by_date(transactions, reverse=True):
+def sort_by_date(
+    transactions: List[Dict[str, Any]], reverse: bool = True
+) -> List[Dict[str, Any]]:
     """Сортирует список словарей по ключу 'date' без использования datetime."""
     return sorted(transactions, key=lambda tx: tx["date"], reverse=reverse)
