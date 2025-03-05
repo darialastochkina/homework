@@ -13,9 +13,8 @@ def func_file(x, y):
 
 def test_log_ok(capsys):
     func_print(22, 2)
-    captured = capsys.readouterr() 
+    captured = capsys.readouterr()
     assert captured.out == "func_print!"
 
 
 # my_function2(3, 0)
-
