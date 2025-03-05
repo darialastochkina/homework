@@ -28,5 +28,3 @@ def test_log_file():
     func_file(3, 0)
     assert os.path.exists(filename)
     assert os.path.getsize(filename) > 0
-
-
