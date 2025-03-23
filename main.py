@@ -1,20 +1,22 @@
-from src.decorators import log
+import json
 
 
-@log()
-def func_print(x, y):
-    return x / y
+def file_name(file_path, city_name):
+    with open(file_path) as f:
+        data = json.load(f)
+    v = dict(data).get(city_name)
+    temp = 0
+    for t in list(v.values()):
+        temp += t
+    result = temp / len(list(v.values()))
+    with open('output.json', 'w') as f:
+        json.dump({
+            city_name: {
+                "Average temperature": result
+            }
+        }
+            , f)
 
 
-@log(filename="test.log")
-def func_file(x, y):
-    return x / y
-
-
-def test_log_ok(capsys):
-    func_print(22, 2)
-    captured = capsys.readouterr()
-    assert captured.out == "func_print!"
-
-
-# my_function2(3, 0)
+res = file_name("temperature.json", "St. Petersburg")
+print(res)
